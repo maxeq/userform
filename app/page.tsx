@@ -2,9 +2,11 @@ import BtnContinue from './components/buttons/btnContinue';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Welcome to the app my friend!
-      <BtnContinue href="/step1" />
+    <main className="flex flex-col items-center space-x-2 justify-center self-center text-center">
+      <h1>Welcome to the app my friend!</h1>
+      <div>
+        <BtnContinue href="/step1" />
+      </div>
     </main>
   );
 }
