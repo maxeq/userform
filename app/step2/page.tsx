@@ -1,5 +1,5 @@
-import BtnContinue from '../components/buttons/btnContinue';
-import BtnBack from '../components/buttons/btnBack';
+import BtnBack from '@/app/components/buttons/btnBack';
+import BtnContinue from '@/app/components/buttons/btnContinue';
 
 export default function Step2() {
   return (

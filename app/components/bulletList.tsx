@@ -1,5 +1,4 @@
 import { CheckCircleIcon } from '@heroicons/react/20/solid';
-import { useRouter } from 'next/router';
 
 type Step = {
   name: string;
@@ -7,18 +6,34 @@ type Step = {
   status: 'complete' | 'current' | 'upcoming';
 };
 
-const steps: Step[] = [
-  { name: 'Property detail', href: '#', status: 'current' },
-  { name: 'Unit Mix', href: '#', status: 'upcoming' },
-  { name: 'Financing', href: '#', status: 'upcoming' },
-  { name: 'Income & Expenses', href: '#', status: 'upcoming' },
-];
+interface StepsBulletsProps {
+  step?: string;
+}
 
 function classNames(...classes: (string | undefined)[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
-const StepsBullets: React.FC = () => {
+const StepsBullets: React.FC<StepsBulletsProps> = ({ step }) => {
+  const steps: Step[] = [
+    { name: 'Property detail', href: '/step1', status: 'current' },
+    { name: 'Unit Mix', href: '/step2', status: 'upcoming' },
+    { name: 'Financing', href: '/step3', status: 'upcoming' },
+    { name: 'Income & Expenses', href: '/step4', status: 'upcoming' },
+  ];
+
+  let currentStepFound = false;
+  for (let i = 0; i < steps.length; i++) {
+    if (steps[i].href === `/${step}`) {
+      console.log(`Found step ${step}`);
+      steps[i].status = 'current';
+      currentStepFound = true;
+      break;
+    } else if (!currentStepFound) {
+      steps[i].status = 'complete';
+    }
+  }
+
   return (
     <div className="px-4 py-12 sm:px-6 lg:px-8">
       <nav className="flex justify-center" aria-label="Progress">

@@ -1,7 +1,7 @@
 import BtnContinue from '../components/buttons/btnContinue';
 import { TextField } from '../components/textField';
 
-export default function Step1() {
+function Step1() {
   return (
     <div>
       <div>Property details</div>
@@ -15,3 +15,5 @@ export default function Step1() {
     </div>
   );
 }
+
+export default Step1;
