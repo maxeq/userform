@@ -1,6 +1,14 @@
-import Link from 'next/link';
-import BtnContinue from '../components/buttons/btnContinue';
+import BtnContinue from '@/app/components/buttons/btnContinue';
+import StepsBullets from '../components/bulletList';
+import BtnBack from '../components/buttons/btnBack';
 
-export default function Congratulations() {
-  return <div>“Congratulations 🎉”</div>;
+function Congratulations() {
+  return (
+    <div>
+      <h1>Congratulations! Start again?</h1>
+      <BtnBack href="/step1" />
+    </div>
+  );
 }
+
+export default Congratulations;
