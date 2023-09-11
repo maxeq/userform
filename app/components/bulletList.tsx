@@ -25,7 +25,7 @@ const StepsBullets: React.FC<StepsBulletsProps> = ({ step }) => {
   let currentStepFound = false;
   for (let i = 0; i < steps.length; i++) {
     if (steps[i].href === `/${step}`) {
-      console.log(`Found step ${step}`);
+      console.log(`${step}`);
       steps[i].status = 'current';
       currentStepFound = true;
       break;
