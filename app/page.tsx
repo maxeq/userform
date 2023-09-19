@@ -34,7 +34,6 @@ const Page: FC<Props> = ({ searchParams }) => {
           {step !== '5' && <StepsBullets step={step} />}
           {config.showBack && <BtnBack href={step} />}
           {step !== '5' && <BtnContinue href={step} />}
-          {step === '5' && <div>{config.title}</div>}
         </div>
         <div>{config.title}</div>
       </div>
