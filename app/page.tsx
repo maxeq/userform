@@ -7,30 +7,41 @@ interface Props {
   searchParams: string;
 }
 
+type StepConfigType = {
+  [key: string]: {
+    title: string;
+    showBack: boolean;
+  };
+};
+
+const stepConfig: StepConfigType = {
+  '1': { title: 'PROPERTY DETAILS', showBack: true },
+  '2': { title: 'UNIT MIX', showBack: true },
+  '3': { title: 'FINANCING', showBack: true },
+  '4': { title: 'INCOME & EXPENSES', showBack: true },
+  '5': { title: 'Congratulations', showBack: false },
+};
+
 const Page: FC<Props> = ({ searchParams }) => {
   const search = new URLSearchParams(searchParams);
-  const id = search.get('id');
-  console.log(search);
+  const id = search.get('id') || '1';
 
-  const validSteps = ['1', '2', '3', '4', '5'];
-
-  const renderContent = (step: string) => (
-    <div>
-      {step !== '5' && <StepsBullets step={step} />}
-      {step !== '1' || ('5' && <BtnBack href={step} />)}
-      {step != '5' && <BtnContinue href={step} />}
-      {step === '5' && <div>Congratulations</div>}
-    </div>
-  );
-
-  if (!id)
+  const renderContent = (step: string) => {
+    const config = stepConfig[step] || stepConfig['1'];
     return (
-      <div>
-        <StepsBullets step="1" /> <BtnContinue href="1" /> <BtnBack href="1" />
+      <div className="grid grid-cols-2 justify-between">
+        <div>
+          {step !== '5' && <StepsBullets step={step} />}
+          {config.showBack && <BtnBack href={step} />}
+          {step !== '5' && <BtnContinue href={step} />}
+          {step === '5' && <div>{config.title}</div>}
+        </div>
+        <div>{config.title}</div>
       </div>
     );
+  };
 
-  return <>{validSteps.includes(id) ? renderContent(id) : renderContent('1')}</>;
+  return renderContent(id);
 };
 
 export default Page;
