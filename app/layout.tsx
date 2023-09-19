@@ -11,20 +11,10 @@ export const metadata: Metadata = {
   description: 'Created by @maxonx',
 };
 
-export default function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { referer: string };
-}) {
-  const headersList = headers();
-  const referer = headersList.get('referer');
-  console.log(referer);
-  if (referer) params.referer = 'sd';
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} container`}>{children}</body>
+      <body className="flex justify-center">{children}</body>
     </html>
   );
 }

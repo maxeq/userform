@@ -7,8 +7,12 @@ type ButtonProps = {
 };
 
 export default function BtnContinue({ href, className }: ButtonProps) {
+  const number = parseInt(href);
   return (
-    <Link href={href} className={`${className} p-2 text-white bg-teal-950 rounded-md`}>
+    <Link
+      href={`?id=${number + 1}`}
+      className={`${className} p-2 text-white bg-teal-950 rounded-md`}
+    >
       Continue
     </Link>
   );

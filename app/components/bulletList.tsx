@@ -16,16 +16,15 @@ function classNames(...classes: (string | undefined)[]): string {
 
 const StepsBullets: React.FC<StepsBulletsProps> = ({ step }) => {
   const steps: Step[] = [
-    { name: 'Property detail', href: '/step1', status: 'current' },
-    { name: 'Unit Mix', href: '/step2', status: 'upcoming' },
-    { name: 'Financing', href: '/step3', status: 'upcoming' },
-    { name: 'Income & Expenses', href: '/step4', status: 'upcoming' },
+    { name: 'Property detail', href: '/?id=1', status: 'current' },
+    { name: 'Unit Mix', href: '/?id=2', status: 'upcoming' },
+    { name: 'Financing', href: '/?id=3', status: 'upcoming' },
+    { name: 'Income & Expenses', href: '/?id=4', status: 'upcoming' },
   ];
 
   let currentStepFound = false;
   for (let i = 0; i < steps.length; i++) {
-    if (steps[i].href === `/${step}`) {
-      console.log(`${step}`);
+    if (steps[i].href === `/?id=${step}`) {
       steps[i].status = 'current';
       currentStepFound = true;
       break;
