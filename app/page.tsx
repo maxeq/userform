@@ -14,6 +14,8 @@ type StepConfigType = {
   };
 };
 
+//steps
+
 const stepConfig: StepConfigType = {
   '1': { title: 'PROPERTY DETAILS', showBack: true },
   '2': { title: 'UNIT MIX', showBack: true },
